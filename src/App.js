@@ -7,7 +7,7 @@ import UserCardList from "./components/usercardlist";
 class App extends Component() {
   state = {
     textInput: "",
-    typedText: []
+    userdata: []
   };
 
   handleChange = event => {
@@ -21,9 +21,11 @@ class App extends Component() {
     const previousInput = this.state.textInput;
     this.setState({
       textInput: "",
-      typedText: [...this.state.typedText, previousInput]
+      userdata: [...this.state.userdata, previousInput]
     });
   };
+
+
 
   render() {
     return (
