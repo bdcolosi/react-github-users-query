@@ -18,16 +18,22 @@ class App extends Component() {
 
   handleSubmit = event => {
     event.preventDefault();
-    const previousInput = this.state.textInput;
-    this.setState({
-      textInput: "",
-      userdata: [...this.state.userdata, previousInput]
+    const userProfile = this.state.textInput;
+    fetch(`https://api.github.com/users/${userProfile}`)
+    .then(res => res.json())
+    .then((result) => {
+      this.setState({
+        textInput: "",
+        userdata: [...this.state.userdata, result]
+    })
+    
     });
   };
 
 
 
   render() {
+    const {userdata} = this.state;
     return (
       <div className="App">
         <form onSubmit={this.handleSubmit}>

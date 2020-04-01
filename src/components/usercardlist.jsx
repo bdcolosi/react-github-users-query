@@ -1,21 +1,17 @@
 import React, {Component} from 'react'
+import UserCard from './userCard'
 
-class UserCardList extends Component {
-    state = {
-        userdata: [...this.state.userdata]
-    }
+function UserCardList() {
+    const user = this.state.userdata;
 
-    render() {
-        const {userdata} = this.state
-        return(
-            <div className='UserCardList'>
-                {userdata.map(user => (
-                    <p>{user.image}</p> 
-                ))}
-            </div>
-        )
+    return (
+        <div className='UserCardList'>
+        {user.map(user => (
+            <p>{user.image}</p> 
+        ))}
+    </div>
+    )
         
-    }
-}
+        }
 
 export default UserCardList;
